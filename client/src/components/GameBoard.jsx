@@ -10,6 +10,9 @@ import { evaluateCircuit } from '../rules/RuleEngine';
 import { playSound } from '../audio';
 import { getGateStyle } from '../gateStyles';
 
+import electricPlugSvg from '../assets/icons/fxemoji--electricplug.svg';
+import highVoltageSvg from '../assets/icons/noto-v1--high-voltage.svg';
+
 const nodeTypes = { switch: SwitchNode, gate: GateNode, bulb: BulbNode };
 
 const getLocalizedMissionMessage = (baseMessage, localContext, levelId) => {
@@ -223,7 +226,7 @@ const GameBoardContent = ({ levelData, onComplete, localContext }) => {
                 <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', background: 'rgba(0,0,0,0.8)', zIndex: 100, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                     <div style={{ background: '#1e293b', padding: '40px', borderRadius: '15px', border: '2px solid #10b981', textAlign: 'center', boxShadow: '0 0 50px rgba(16, 185, 129, 0.4)' }}>
                         <h2 style={{ color: '#10b981', margin: '0 0 20px 0', fontSize: '32px' }}>Misiune Completă!</h2>
-                        <div style={{ fontSize: '50px', letterSpacing: '10px', marginBottom: '20px' }}>
+                        <div style={{ fontSize: '50px', letterSpacing: '10px', marginBottom: '20px', display: 'flex', justifyContent: 'center', gap: '10px' }}>
                             {Array(3).fill(0).map((_, i) => (
                                 <span key={i} style={{ color: i < earnedStars ? '#facc15' : '#475569', textShadow: i < earnedStars ? '0 0 20px #facc15' : 'none' }}>★</span>
                             ))}
@@ -284,8 +287,31 @@ const GameBoardContent = ({ levelData, onComplete, localContext }) => {
 
             <div style={{ flexGrow: 1, position: 'relative' }} ref={reactFlowWrapper}>
                 <div style={{ position: 'absolute', bottom: 40, left: '50%', transform: 'translateX(-50%)', zIndex: 10 }}>
-                    <button onClick={handleTogglePower} style={{ padding: '15px 40px', fontSize: '20px', fontWeight: '900', borderRadius: '40px', background: isPowerOn ? '#ef4444' : '#10b981', color: 'white', border: 'none', cursor: 'pointer', boxShadow: isPowerOn ? '0 0 20px #ef4444' : '0 0 25px rgba(16, 185, 129, 0.6)', transition: 'all 0.3s' }}>
-                        {isPowerOn ? '⚡ OPREȘTE CURENTUL' : '🔌 TESTEAZĂ CIRCUITUL'}
+                    <button 
+                        onClick={handleTogglePower} 
+                        style={{ 
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            gap: '10px',
+                            padding: '15px 40px', 
+                            fontSize: '20px', 
+                            fontWeight: '900', 
+                            borderRadius: '40px', 
+                            background: isPowerOn ? '#ef4444' : '#10b981', 
+                            color: 'white', 
+                            border: 'none', 
+                            cursor: 'pointer', 
+                            boxShadow: isPowerOn ? '0 0 20px #ef4444' : '0 0 25px rgba(16, 185, 129, 0.6)', 
+                            transition: 'all 0.3s' 
+                        }}
+                    >
+                        <img 
+                            src={isPowerOn ? highVoltageSvg : electricPlugSvg} 
+                            alt="" 
+                            style={{ width: '24px', height: '24px', objectFit: 'contain' }} 
+                        />
+                        <span>{isPowerOn ? 'OPREȘTE CURENTUL' : 'TESTEAZĂ CIRCUITUL'}</span>
                     </button>
                 </div>
 
