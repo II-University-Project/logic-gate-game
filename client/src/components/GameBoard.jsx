@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
-import { ReactFlow, Background, Controls, applyNodeChanges, applyEdgeChanges, addEdge, ReactFlowProvider, useReactFlow } from '@xyflow/react';
+import { ReactFlow, Controls, applyNodeChanges, applyEdgeChanges, addEdge, ReactFlowProvider, useReactFlow } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
 
 import SwitchNode from './Nodes/SwitchNode';
@@ -287,36 +287,35 @@ const GameBoardContent = ({ levelData, onComplete, localContext }) => {
 
             <div style={{ flexGrow: 1, position: 'relative' }} ref={reactFlowWrapper}>
                 <div style={{ position: 'absolute', bottom: 40, left: '50%', transform: 'translateX(-50%)', zIndex: 10 }}>
-                    <button 
-                        onClick={handleTogglePower} 
-                        style={{ 
+                    <button
+                        onClick={handleTogglePower}
+                        style={{
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center',
                             gap: '10px',
-                            padding: '15px 40px', 
-                            fontSize: '20px', 
-                            fontWeight: '900', 
-                            borderRadius: '40px', 
-                            background: isPowerOn ? '#ef4444' : '#10b981', 
-                            color: 'white', 
-                            border: 'none', 
-                            cursor: 'pointer', 
-                            boxShadow: isPowerOn ? '0 0 20px #ef4444' : '0 0 25px rgba(16, 185, 129, 0.6)', 
-                            transition: 'all 0.3s' 
+                            padding: '15px 40px',
+                            fontSize: '20px',
+                            fontWeight: '900',
+                            borderRadius: '40px',
+                            background: isPowerOn ? 'var(--color-off)' : 'var(--color-on)',
+                            color: 'white',
+                            border: 'none',
+                            cursor: 'pointer',
+                            boxShadow: isPowerOn ? '0 0 20px var(--color-off)' : '0 0 25px rgba(16, 185, 129, 0.6)',
+                            transition: 'all 0.3s'
                         }}
                     >
-                        <img 
-                            src={isPowerOn ? highVoltageSvg : electricPlugSvg} 
-                            alt="" 
-                            style={{ width: '24px', height: '24px', objectFit: 'contain' }} 
+                        <img
+                            src={isPowerOn ? highVoltageSvg : electricPlugSvg}
+                            alt=""
+                            style={{ width: '24px', height: '24px', objectFit: 'contain' }}
                         />
                         <span>{isPowerOn ? 'OPREȘTE CURENTUL' : 'TESTEAZĂ CIRCUITUL'}</span>
                     </button>
                 </div>
 
                 <ReactFlow nodes={nodes} edges={edges} onNodesChange={onNodesChange} onEdgesChange={onEdgesChange} onConnect={onConnect} onDrop={onDrop} onDragOver={onDragOver} isValidConnection={isValidConnection} nodeTypes={nodeTypes} fitView>
-                    <Background color="#334155" variant="dots" gap={20} size={2} />
                     <Controls style={{ background: '#1e293b', fill: '#fff' }} />
                 </ReactFlow>
             </div>

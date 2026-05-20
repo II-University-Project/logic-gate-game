@@ -7,10 +7,10 @@ const SwitchNode = ({ data }) => {
             borderRadius: '8px',
             background: '#1e293b',
             color: 'white',
-            border: `2px solid ${data.initialValue ? '#10b981' : '#ef4444'}`,
+            border: `2px solid ${data.initialValue ? 'var(--color-on)' : 'var(--color-off)'}`,
             width: '110px',
             textAlign: 'center',
-            boxShadow: data.value ? '0 0 20px #10b981' : 'none',
+            boxShadow: data.value ? '0 0 20px var(--color-on)' : 'none',
             transition: 'all 0.3s'
         }}>
             <div style={{ fontSize: '18px', fontWeight: 'bold', marginBottom: '10px', color: '#f8fafc' }}>
@@ -20,7 +20,7 @@ const SwitchNode = ({ data }) => {
             <div style={{
                 width: '100%',
                 padding: '5px',
-                background: data.initialValue ? '#059669' : '#9f1239',
+                background: data.initialValue ? 'var(--color-on)' : 'var(--color-off)',
                 color: 'white',
                 borderRadius: '4px',
                 fontWeight: 'bold',
