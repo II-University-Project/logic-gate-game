@@ -1,0 +1,31 @@
+<svg width="48" height="48" xmlns="http://www.w3.org/2000/svg">
+ <g>
+  <title>Layer 1</title>
+  <path id="svg_1" fill="none" d="m0,0l48,0l0,48l-48,0l0,-48z"/>
+  <path id="svg_2" opacity="0.15" d="m4.5,45.5a19.5,1.5 0 1 0 39,0a19.5,1.5 0 1 0 -39,0" fill="#45413c"/>
+  <path id="svg_3" d="m42,40.5a4,4 0 0 1 -4,4l-28,0a4,4 0 0 1 -4,-4l0,-13.5a18,18 0 0 1 36,0l0,13.5z" fill="#daedf7"/>
+  <path id="svg_4" d="m24,9a18,18 0 0 0 -18,18l0,5a18,18 0 0 1 36,0l0,-5a18,18 0 0 0 -18,-18" fill="#fff"/>
+  <path id="svg_5" d="m42,40.5a4,4 0 0 1 -4,4l-28,0a4,4 0 0 1 -4,-4l0,-13.5a18,18 0 0 1 36,0l0,13.5z" stroke-linejoin="round" stroke-linecap="round" stroke="#45413c" fill="none"/>
+  <path id="svg_6" d="m17.5,34l13,0l0,12l-13,0l0,-12z" fill="#c0dceb"/>
+  <path id="svg_7" d="m17.5,38.5l13,0l0,2l-13,0l0,-2z" fill="#adc4d9"/>
+  <path id="svg_8" d="m45.5,35.92a1,1 0 0 1 -0.5,0.87l-3,1.71l0,-12.5l3,1.71a1,1 0 0 1 0.5,0.87l0,7.34zm-43,0a1,1 0 0 0 0.5,0.87l3,1.71l0,-12.5l-3,1.71a1,1 0 0 0 -0.5,0.87l0,7.34z" stroke-linejoin="round" stroke-linecap="round" stroke="#45413c" fill="#adc4d9"/>
+  <path id="svg_9" d="m24,9a9,9 0 0 1 10.5,-6.73" stroke-linejoin="round" stroke-linecap="round" stroke="#45413c" fill="none"/>
+  <path id="svg_10" d="m33.5,3.5a2.5,2.5 0 1 0 5,0a2.5,2.5 0 1 0 -5,0" stroke-linejoin="round" stroke-linecap="round" stroke="#45413c" fill="#ff6242"/>
+  <path id="svg_11" d="m17.5,34l13,0l0,12l-13,0l0,-12z" stroke-linejoin="round" stroke-linecap="round" stroke="#45413c" fill="none"/>
+  <path id="svg_12" d="m19.5,34l9,0a2,2 0 0 1 2,2l0,2.5l0,0l-13,0l0,0l0,-2.5a2,2 0 0 1 2,-2" stroke-linejoin="round" stroke-linecap="round" stroke="#45413c" fill="#ff6242"/>
+  <path id="svg_13" d="m33.5,11.71a18,18 0 0 0 -19,0l0,12.29l19,0l0,-12.29z" stroke-linejoin="round" stroke-linecap="round" stroke="#45413c" fill="none"/>
+  <path id="svg_14" d="m27.5,25a5,5 0 1 0 10,0a5,5 0 1 0 -10,0" stroke-linejoin="round" stroke-linecap="round" stroke="#45413c" fill="#00dfeb"/>
+  <path id="svg_15" d="m30.5,25a2,2 0 1 0 4,0a2,2 0 1 0 -4,0" stroke-linejoin="round" stroke-linecap="round" stroke="#45413c" fill="#627b8c"/>
+  <path id="svg_16" d="m10.5,25a5,5 0 1 0 10,0a5,5 0 1 0 -10,0" stroke-linejoin="round" stroke-linecap="round" stroke="#45413c" fill="#00dfeb"/>
+  <path id="svg_17" d="m13.5,25a2,2 0 1 0 4,0a2,2 0 1 0 -4,0" stroke-linejoin="round" stroke-linecap="round" stroke="#45413c" fill="#627b8c"/>
+ </g>
+xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 56 56"&gt;
+ <title>Layer 2</title>
+ <g>
+  <title>Layer 2</title>
+  <path transform="rotate(-26.459 16.337 40.0343)" stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5" stroke="#45413c" fill="#EDFFFF" d="m4.26118,41.53548c0,4.98589 3.23755,7.91643 8.69632,7.91643l2.26861,0c2.07956,0 3.34393,-1.00474 3.34393,-2.12745c0,-0.25963 -0.13007,-0.3897 -0.3781,-0.3897l-1.00424,0c-0.47288,0 -0.70932,-0.24803 -0.70932,-0.53136c0,-0.30752 0.23644,-0.54346 0.70932,-0.54346l0.66142,0c1.21698,0 2.02057,-0.79149 2.02057,-1.84362c0,-0.48397 -0.20115,-0.69671 -0.60295,-0.69671l-1.37024,0c-0.47288,0 -0.70932,-0.23694 -0.70932,-0.52027c0,-0.30752 0.23694,-0.55505 0.70932,-0.55505l1.26437,0c1.37024,0 2.02007,-0.80359 2.02007,-1.81993c0,-0.46078 -0.21274,-0.69671 -0.60244,-0.69671l-2.682,0c-0.47288,0 -0.70932,-0.24854 -0.70932,-0.53186c0,-0.30752 0.23694,-0.54346 0.70932,-0.54346l9.07443,0c0.87417,0 1.44183,-0.57925 1.44183,-1.31176c0,-0.79149 -0.56766,-1.34705 -1.44183,-1.34705l-13.46998,0c-0.30752,0 -0.47237,-0.18905 -0.47237,-0.3781c0,-0.20065 0.12956,-0.34281 0.42499,-0.48397l4.60779,-2.02057c0.792,-0.35491 1.02843,-1.07532 0.7804,-1.70145c-0.23644,-0.60295 -0.95735,-1.00474 -1.81993,-0.67352l-5.97853,2.25651c-4.99799,1.87941 -6.78213,4.73836 -6.78213,8.54307" id="svg_19"/>
+  <path id="svg_21" d="m27.68984,15.81819c9.83957,2.03208 11.65775,3.85027 11.56148,3.754c0.09627,0.09627 -21.40105,-5.78609 -11.56148,-3.754z" opacity="NaN" fill="none"/>
+  <line id="svg_24" y2="16.4599" x2="26.08556" y1="17.85027" x1="10.36364" fill="none"/>
+  <path transform="rotate(3.33803 33.807 19.0795)" stroke-width="1.2" id="svg_20" d="m29.18324,18.71204c6.49214,-3.24607 9.31937,1.88482 9.24605,1.8115" opacity="NaN" stroke="#494949" fill="none"/>
+  <path transform="rotate(-19.7598 14.2258 18.8701)" stroke-width="1.2" id="svg_22" d="m9.6021,18.50262c6.49214,-3.24608 9.31937,1.88481 9.24605,1.8115" opacity="NaN" stroke="#494949" fill="none"/>
+ </g></svg>

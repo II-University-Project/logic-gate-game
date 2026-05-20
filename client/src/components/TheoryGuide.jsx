@@ -1,5 +1,8 @@
 import React from 'react';
 
+import openBookSvg from '../assets/icons/noto--open-book.svg';
+import multiplySvg from '../assets/icons/mdi--multiply.svg';
+
 const TheoryGuide = ({ onClose }) => {
     const gates = [
         { name: 'NOT (NU)', icon: '!', desc: 'Inversează semnalul. Dacă intră 1, iese 0. Dacă intră 0, iese 1.', color: '#facc15' },
@@ -18,10 +21,33 @@ const TheoryGuide = ({ onClose }) => {
                 {/* Header-ul Manualului */}
                 <div style={{ background: '#0f172a', padding: '20px 30px', borderBottom: '1px solid #334155', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                     <h2 style={{ margin: 0, color: '#60a5fa', display: 'flex', alignItems: 'center', gap: '10px' }}>
-                        <span>📖</span> Manualul Inginerului
+                        <img 
+                            src={openBookSvg} 
+                            alt="" 
+                            style={{ width: '28px', height: '28px', objectFit: 'contain' }} 
+                        />
+                        <span>Manualul Inginerului</span>
                     </h2>
-                    <button onClick={onClose} style={{ background: 'transparent', color: '#94a3b8', border: 'none', fontSize: '24px', cursor: 'pointer', transition: 'color 0.2s' }} onMouseEnter={e => e.target.style.color = '#ef4444'} onMouseLeave={e => e.target.style.color = '#94a3b8'}>
-                        ✖
+                    <button 
+                        onClick={onClose} 
+                        style={{ 
+                            background: 'transparent', 
+                            border: 'none', 
+                            cursor: 'pointer', 
+                            display: 'flex', 
+                            alignItems: 'center', 
+                            justifyContent: 'center', 
+                            padding: '5px',
+                            transition: 'filter 0.2s'
+                        }} 
+                        onMouseEnter={e => e.currentTarget.style.filter = 'brightness(0) saturate(100%) invert(37%) sepia(91%) saturate(5437%) hn-value(354deg) truecolor(#ef4444)'} 
+                        onMouseLeave={e => e.currentTarget.style.filter = 'none'}
+                    >
+                        <img 
+                            src={multiplySvg} 
+                            alt="Închide" 
+                            style={{ width: '24px', height: '24px', objectFit: 'contain' }} 
+                        />
                     </button>
                 </div>
 

@@ -3,6 +3,15 @@ import GameBoard from './components/GameBoard';
 import TheoryGuide from './components/TheoryGuide';
 import { DEFAULT_LOCATION_CONTEXT, getLocationContextFromBrowser } from './locationContext';
 
+// Importuri pentru iconițele SVG din folderul de resurse
+import shieldSvg from './assets/icons/noto-v1--shield.svg';
+import robotSvg from './assets/icons/streamline-emojis--robot-face-1.svg';
+import wrenchSvg from './assets/icons/fxemoji--wrench.svg';
+import bookSvg from './assets/icons/noto--open-book.svg';
+import lightBulbSvg from './assets/icons/fluent-emoji-flat--light-bulb.svg';
+import arrowRightSvg from './assets/icons/mdi--arrow-right-thin.svg';
+import lightningSvg from './assets/icons/noto-v1--high-voltage.svg';
+
 const chunkArray = (arr, size) => {
     const chunked = [];
     for (let i = 0; i < arr.length; i += size) {
@@ -16,16 +25,14 @@ const RANK_DETAILS = [
     {
         title: 'Începător',
         minXP: 0,
-        icon: '🛡️',
         color: '#94a3b8',
         mission: 'Primii pași în electronică digitală',
         description: 'În acest rol, jucătorul învață conceptele de bază: ce este un semnal logic, cum funcționează valorile 0 și 1 și cum se conectează primele componente pe panoul de lucru.',
-        skills: ['Înțelegerea semnalelor ON/OFF', 'Folosirea comutatoarelor', 'Observarea ieșirii unui circuit simplu']
+        skills: ['Înțelegerea semnalelor ON/OFF', 'Folosirea comutatoareeler', 'Observarea ieșirii unui circuit simplu']
     },
     {
         title: 'Ucenic',
         minXP: 0,
-        icon: '🛡️',
         color: '#94a3b8',
         mission: 'Repararea circuitelor simple ale stației',
         description: 'Ucenicul poate rezolva circuite introductive și începe să recunoască rolul porților AND, OR și NOT. Accentul este pus pe experimentare și pe construirea intuiției logice.',
@@ -34,7 +41,6 @@ const RANK_DETAILS = [
     {
         title: 'Tehnician',
         minXP: 500,
-        icon: '🛡️',
         color: '#3b82f6',
         mission: 'Diagnosticarea modulelor intermediare',
         description: 'Tehnicianul lucrează cu porți mai variate și începe să optimizeze soluțiile. Jucătorul trebuie să fie atent la numărul de încercări și la piesele folosite pentru a obține mai multe stele.',
@@ -43,7 +49,6 @@ const RANK_DETAILS = [
     {
         title: 'Inginer Logic',
         minXP: 1500,
-        icon: '🛡️',
         color: '#10b981',
         mission: 'Proiectarea subsistemelor critice',
         description: 'Inginerul Logic poate analiza cerințe mai complexe și poate construi circuite pornind de la un comportament dorit. Nivelurile cer planificare, verificare și gândire în pași.',
@@ -52,7 +57,6 @@ const RANK_DETAILS = [
     {
         title: 'Master Arhitect',
         minXP: 3000,
-        icon: '🛡️',
         color: '#facc15',
         mission: 'Arhitectura completă a sistemelor logice',
         description: 'Master Arhitect este rangul avansat. Jucătorul rezolvă provocări de optimizare, multiplexoare, comparatoare și funcții logice complexe folosind cât mai puține componente.',
@@ -88,7 +92,11 @@ const RankDetailsModal = ({ currentRank, onClose }) => (
                                 <span style={{ position: 'absolute', top: '12px', right: '12px', color: rank.color, fontSize: '11px', fontWeight: 'bold', textTransform: 'uppercase', letterSpacing: '1px' }}>Rang curent</span>
                             )}
                             <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '12px' }}>
-                                <span style={{ color: rank.color, fontSize: '30px', filter: `drop-shadow(0 0 8px ${rank.color})` }}>{rank.icon}</span>
+                                <img 
+                                    src={shieldSvg} 
+                                    alt="" 
+                                    style={{ width: '38px', height: '38px', objectFit: 'contain', filter: `drop-shadow(0 0 8px ${rank.color})` }} 
+                                />
                                 <div>
                                     <h4 style={{ color: rank.color, margin: 0, fontSize: '1.05rem' }}>{rank.title}</h4>
                                     <span style={{ color: '#64748b', fontSize: '12px' }}>{rank.minXP}+ XP</span>
@@ -239,7 +247,9 @@ function App() {
             <div style={{ height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center', background: '#020617', backgroundImage: 'radial-gradient(circle, #1e293b 2px, transparent 2px)', backgroundSize: '30px 30px' }}>
                 <div style={{ background: 'rgba(30, 41, 59, 0.95)', padding: '40px', borderRadius: '20px', border: '2px solid #3b82f6', maxWidth: '650px', textAlign: 'center', boxShadow: '0 0 50px rgba(59, 130, 246, 0.3)' }}>
 
-                    <div style={{ fontSize: '60px', marginBottom: '10px', animation: 'bounce 2s infinite' }}>🤖</div>
+                    <div style={{ marginBottom: '15px', animation: 'bounce 2s infinite', display: 'flex', justifyContent: 'center' }}>
+                        <img src={robotSvg} alt="Robot Spark" style={{ width: '70px', height: '70px', objectFit: 'contain' }} />
+                    </div>
 
                     {onboardStep === 0 ? (
                         <div>
@@ -250,16 +260,18 @@ function App() {
                             <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
                                 <button
                                     onClick={() => setOnboardStep(1)}
-                                    style={{ padding: '15px', background: '#3b82f6', color: 'white', border: 'none', borderRadius: '10px', fontSize: '16px', cursor: 'pointer', fontWeight: 'bold', boxShadow: '0 0 15px rgba(59, 130, 246, 0.5)' }}>
-                                    🔧 Știu cum funcționează! Dă-mi acces la panou!
+                                    style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px', padding: '15px', background: '#3b82f6', color: 'white', border: 'none', borderRadius: '10px', fontSize: '16px', cursor: 'pointer', fontWeight: 'bold', boxShadow: '0 0 15px rgba(59, 130, 246, 0.5)' }}>
+                                    <img src={wrenchSvg} alt="" style={{ width: '20px', height: '20px' }} />
+                                    <span>Știu cum funcționează! Dă-mi acces la panou!</span>
                                 </button>
                                 <button
                                     onClick={() => finishCalibration(1, 'Începător')}
-                                    style={{ padding: '15px', background: 'transparent', border: '2px dashed #64748b', borderRadius: '10px', color: '#94a3b8', fontSize: '16px', cursor: 'pointer' }}
-                                    onMouseEnter={e => e.target.style.color = '#cbd5e1'}
-                                    onMouseLeave={e => e.target.style.color = '#94a3b8'}
+                                    style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px', padding: '15px', background: 'transparent', border: '2px dashed #64748b', borderRadius: '10px', color: '#94a3b8', fontSize: '16px', cursor: 'pointer' }}
+                                    onMouseEnter={e => e.currentTarget.style.color = '#cbd5e1'}
+                                    onMouseLeave={e => e.currentTarget.style.color = '#94a3b8'}
                                 >
-                                    📖 Sunt la început. Arată-mi cum funcționează.
+                                    <img src={bookSvg} alt="" style={{ width: '20px', height: '20px' }} />
+                                    <span>Sunt la început. Arată-mi cum funcționează.</span>
                                 </button>
                             </div>
                         </div>
@@ -290,11 +302,13 @@ function App() {
                                 </div>
 
                                 {/* Săgeți Vizuale */}
-                                <div style={{ color: '#475569', fontSize: '30px' }}>➔</div>
+                                <div style={{ display: 'flex', alignItems: 'center' }}>
+                                    <img src={arrowRightSvg} alt="Săgeată" style={{ width: '32px', height: '32px', filter: 'invert(31%) sepia(13%) saturate(913%) hue-rotate(182deg) brightness(93%) contrast(89%)' }} />
+                                </div>
 
                                 {/* Becul */}
-                                <div style={{ fontSize: '60px', filter: bulbGlow ? 'drop-shadow(0 0 30px #facc15)' : 'brightness(0.3)', transition: 'all 0.3s' }}>
-                                    {bulbGlow ? '💡' : '💡'}
+                                <div style={{ filter: bulbGlow ? 'drop-shadow(0 0 30px #facc15)' : 'brightness(0.3)', transition: 'all 0.3s', display: 'flex', alignItems: 'center' }}>
+                                    <img src={lightBulbSvg} alt="Bec" style={{ width: '60px', height: '60px', objectFit: 'contain' }} />
                                 </div>
 
                             </div>
@@ -320,7 +334,10 @@ function App() {
         <div style={{ height: '100vh', display: 'flex', flexDirection: 'column', background: '#020617' }}>
             <header style={{ padding: '15px 30px', background: '#1e293b', borderBottom: '2px solid #3b82f6', display: 'flex', justifyContent: 'space-between', alignItems: 'center', zIndex: 10 }}>
                 <div style={{ display: 'flex', flexDirection: 'column' }}>
-                    <h1 style={{ margin: 0, color: '#60a5fa', textShadow: '0 0 10px rgba(96, 165, 250, 0.5)' }}>⚡ LogicGate Academy</h1>
+                    <h1 style={{ margin: 0, color: '#60a5fa', textShadow: '0 0 10px rgba(96, 165, 250, 0.5)', display: 'flex', alignItems: 'center', gap: '10px' }}>
+                        <img src={lightningSvg} alt="" style={{ width: '32px', height: '32px', objectFit: 'contain' }} />
+                        LogicGate Academy
+                    </h1>
                     <span style={{ color: '#94a3b8', fontSize: '12px' }}>
                     {timeGreeting} | Jucător: {progress.profile}
                         {localContext.city ? ` | Oraș: ${localContext.city}` : ''}
@@ -331,19 +348,21 @@ function App() {
                     <button
                         onClick={() => setIsHelpOpen(true)}
                         style={{ background: '#0f172a', color: '#cbd5e1', border: '1px solid #475569', padding: '10px 15px', borderRadius: '8px', cursor: 'pointer', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '8px', transition: 'all 0.2s' }}
-                        onMouseEnter={e => { e.target.style.background = '#334155'; e.target.style.color = '#fff'; }}
-                        onMouseLeave={e => { e.target.style.background = '#0f172a'; e.target.style.color = '#cbd5e1'; }}
+                        onMouseEnter={e => { e.currentTarget.style.background = '#334155'; e.currentTarget.style.color = '#fff'; }}
+                        onMouseLeave={e => { e.currentTarget.style.background = '#0f172a'; e.currentTarget.style.color = '#cbd5e1'; }}
                     >
-                        <span>💡</span> Teorie & Ajutor
+                        <img src={lightBulbSvg} alt="" style={{ width: '18px', height: '18px', objectFit: 'contain' }} />
+                        <span>Teorie & Ajutor</span>
                     </button>
 
                     <button
                         onClick={() => setIsRanksOpen(true)}
                         style={{ background: '#0f172a', color: '#cbd5e1', border: '1px solid #475569', padding: '10px 15px', borderRadius: '8px', cursor: 'pointer', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '8px', transition: 'all 0.2s' }}
-                        onMouseEnter={e => { e.target.style.background = '#334155'; e.target.style.color = '#fff'; }}
-                        onMouseLeave={e => { e.target.style.background = '#0f172a'; e.target.style.color = '#cbd5e1'; }}
+                        onMouseEnter={e => { e.currentTarget.style.background = '#334155'; e.currentTarget.style.color = '#fff'; }}
+                        onMouseLeave={e => { e.currentTarget.style.background = '#0f172a'; e.currentTarget.style.color = '#cbd5e1'; }}
                     >
-                        <span style={{ color: badgeColor }}>🛡️</span> Explică rolurile
+                        <img src={shieldSvg} alt="" style={{ width: '18px', height: '18px', objectFit: 'contain', filter: `drop-shadow(0 0 3px ${badgeColor})` }} />
+                        <span>Explică rolurile</span>
                     </button>
 
                     <div style={{ display: 'flex', alignItems: 'center', gap: '15px', background: '#0f172a', padding: '8px 20px', borderRadius: '30px', border: `1px solid ${badgeColor}`, boxShadow: `inset 0 0 10px rgba(0,0,0,0.5), 0 0 15px ${badgeColor}40` }}>
@@ -351,7 +370,11 @@ function App() {
                             <span style={{ color: badgeColor, fontSize: '12px', fontWeight: 'bold', textTransform: 'uppercase', letterSpacing: '1px' }}>Rang: {badgeTitle}</span>
                             <span style={{ color: '#f8fafc', fontSize: '18px', fontWeight: '900' }}>{totalXP} XP</span>
                         </div>
-                        <span style={{ color: badgeColor, fontSize: '28px', filter: `drop-shadow(0 0 5px ${badgeColor})` }}>🛡️</span>
+                        <img 
+                            src={shieldSvg} 
+                            alt="" 
+                            style={{ width: '28px', height: '28px', objectFit: 'contain', filter: `drop-shadow(0 0 5px ${badgeColor})` }} 
+                        />
                     </div>
 
                     {selectedLevel && (

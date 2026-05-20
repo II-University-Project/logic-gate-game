@@ -1,5 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
 
+import starStruckSvg from '../assets/icons/twemoji--star-struck.svg';
+import thinkingFaceSvg from '../assets/icons/twemoji--thinking-face.svg';
+import faceWithCrossedOutEyesSvg from '../assets/icons/twemoji--face-with-crossed-out-eyes.svg';
+import robotFaceSvg from '../assets/icons/streamline-emojis--robot-face-1.svg';
+
 const BUBBLE_ANIMATION_MS = 450;
 
 const Avatar = ({ mood, title, message }) => {
@@ -42,17 +47,17 @@ const Avatar = ({ mood, title, message }) => {
     const getAvatarProps = () => {
         switch (mood) {
             case 'happy':
-                return { face: '🤩', color: '#10b981', glow: '0 0 20px rgba(16, 185, 129, 0.6)' };
+                return { faceImg: starStruckSvg, color: '#10b981', glow: '0 0 20px rgba(16, 185, 129, 0.6)' };
             case 'sad':
-                return { face: '🤔', color: '#f59e0b', glow: '0 0 20px rgba(245, 158, 11, 0.6)' };
+                return { faceImg: thinkingFaceSvg, color: '#f59e0b', glow: '0 0 20px rgba(245, 158, 11, 0.6)' };
             case 'alert':
-                return { face: '😵', color: '#ef4444', glow: '0 0 20px rgba(239, 68, 68, 0.6)' };
+                return { faceImg: faceWithCrossedOutEyesSvg, color: '#ef4444', glow: '0 0 20px rgba(239, 68, 68, 0.6)' };
             default:
-                return { face: '🤖', color: '#3b82f6', glow: '0 0 15px rgba(59, 130, 246, 0.4)' };
+                return { faceImg: robotFaceSvg, color: '#3b82f6', glow: '0 0 15px rgba(59, 130, 246, 0.4)' };
         }
     };
 
-    const { face, color, glow } = getAvatarProps();
+    const { faceImg, color, glow } = getAvatarProps();
 
     return (
         <div style={{
@@ -80,7 +85,6 @@ const Avatar = ({ mood, title, message }) => {
                     display: 'flex',
                     justifyContent: 'center',
                     alignItems: 'center',
-                    fontSize: '40px',
                     boxShadow: glow,
                     transition: 'all 0.3s ease',
                     flexShrink: 0,
@@ -88,7 +92,11 @@ const Avatar = ({ mood, title, message }) => {
                     padding: 0
                 }}
             >
-                {face}
+                <img 
+                    src={faceImg} 
+                    alt={`${mood} avatar`} 
+                    style={{ width: '46px', height: '46px', objectFit: 'contain' }}
+                />
             </button>
 
             {isBubbleMounted && (

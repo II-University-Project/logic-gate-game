@@ -1,0 +1,29 @@
+<svg width="48" height="48" xmlns="http://www.w3.org/2000/svg">
+ <g>
+  <title>Layer 1</title>
+  <path d="m0,0l48,0l0,48l-48,0l0,-48z" fill="none" id="svg_2"/>
+  <path fill="#45413c" d="m4.5,45.5a19.5,1.5 0 1 0 39,0a19.5,1.5 0 1 0 -39,0" opacity="0.15" id="svg_3"/>
+  <path fill="#daedf7" d="m42,40.5a4,4 0 0 1 -4,4l-28,0a4,4 0 0 1 -4,-4l0,-13.5a18,18 0 0 1 36,0l0,13.5z" id="svg_4"/>
+  <path fill="#fff" d="m24,9a18,18 0 0 0 -18,18l0,5a18,18 0 0 1 36,0l0,-5a18,18 0 0 0 -18,-18" id="svg_5"/>
+  <path fill="none" stroke="#45413c" stroke-linecap="round" stroke-linejoin="round" d="m42,40.5a4,4 0 0 1 -4,4l-28,0a4,4 0 0 1 -4,-4l0,-13.5a18,18 0 0 1 36,0l0,13.5z" id="svg_6"/>
+  <path fill="#c0dceb" d="m17.5,34l13,0l0,12l-13,0l0,-12z" id="svg_7"/>
+  <path fill="#adc4d9" d="m17.5,38.5l13,0l0,2l-13,0l0,-2z" id="svg_8"/>
+  <path fill="#adc4d9" stroke="#45413c" stroke-linecap="round" stroke-linejoin="round" d="m45.5,35.92a1,1 0 0 1 -0.5,0.87l-3,1.71l0,-12.5l3,1.71a1,1 0 0 1 0.5,0.87l0,7.34zm-43,0a1,1 0 0 0 0.5,0.87l3,1.71l0,-12.5l-3,1.71a1,1 0 0 0 -0.5,0.87l0,7.34z" id="svg_9"/>
+  <path fill="none" stroke="#45413c" stroke-linecap="round" stroke-linejoin="round" d="m24,9a9,9 0 0 1 10.5,-6.73" id="svg_10"/>
+  <path fill="#ff6242" stroke="#45413c" stroke-linecap="round" stroke-linejoin="round" d="m33.5,3.5a2.5,2.5 0 1 0 5,0a2.5,2.5 0 1 0 -5,0" id="svg_11"/>
+  <path fill="none" stroke="#45413c" stroke-linecap="round" stroke-linejoin="round" d="m17.5,34l13,0l0,12l-13,0l0,-12z" id="svg_12"/>
+  <path fill="#ff6242" stroke="#45413c" stroke-linecap="round" stroke-linejoin="round" d="m19.5,34l9,0a2,2 0 0 1 2,2l0,2.5l0,0l-13,0l0,0l0,-2.5a2,2 0 0 1 2,-2" id="svg_13"/>
+  <path fill="none" stroke="#45413c" stroke-linecap="round" stroke-linejoin="round" d="m33.5,11.71a18,18 0 0 0 -19,0l0,12.29l19,0l0,-12.29z" id="svg_14"/>
+  <g id="svg_17" transform="matrix(0.749374 0 0 0.749374 1.58133 3.30588)">
+   <svg width="24" height="24" viewBox="0 0 24 24" fill="#ffd700" id="svg_1" x="5.08042" y="15.00318" xmlns="http://www.w3.org/2000/svg">
+    <polygon points="12,2 14.8,8.1 21.5,9.1 16.7,13.8 17.8,20.5 12,17.3 6.2,20.5 7.3,13.8 2.5,9.1 9.2,8.1" stroke-linejoin="round" stroke-width="1.5" stroke="#45413c" id="svg_15"/>
+   </svg>
+  </g>
+  <g id="svg_20" transform="matrix(0.749374 0 0 0.749374 1.58133 3.30588)">
+   <svg width="24" height="24" viewBox="0 0 24 24" fill="#ffd700" id="svg_16" x="29.95556" y="14.74406" xmlns="http://www.w3.org/2000/svg">
+    <polygon points="12,2 14.8,8.1 21.5,9.1 16.7,13.8 17.8,20.5 12,17.3 6.2,20.5 7.3,13.8 2.5,9.1 9.2,8.1" stroke-linejoin="round" stroke-width="1.5" stroke="#45413c" id="svg_19"/>
+   </svg>
+  </g>
+ </g>
+
+</svg>
