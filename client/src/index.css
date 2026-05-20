@@ -1,3 +1,49 @@
+:root {
+    --color-on: #10b981;
+    --color-off: #ef4444;
+    --color-on-glow: rgba(16, 185, 129, 0.6);
+    --color-off-glow: rgba(239, 68, 68, 0.6);
+}
+
+[data-theme="colorblind"] {
+    --color-on: #3b82f6;
+    --color-off: #f97316;
+    --color-on-glow: rgba(59, 130, 246, 0.6);
+    --color-off-glow: rgba(249, 115, 22, 0.6);
+}
+
+.react-flow__edge.active-edge .react-flow__edge-path {
+    stroke: var(--color-on) !important;
+    filter: drop-shadow(0 0 5px var(--color-on));
+    stroke-dasharray: none;
+}
+
+.react-flow__edge.inactive-edge .react-flow__edge-path {
+    stroke: var(--color-off) !important;
+}
+
+[data-theme="colorblind"] .react-flow__edge.inactive-edge .react-flow__edge-path {
+    stroke-dasharray: 8, 8;
+    animation: none;
+}
+
+.react-flow__controls-button {
+    background-color: #1e293b !important;
+    border-bottom: 1px solid #334155 !important;
+    fill: #cbd5e1 !important;
+}
+
+
+.react-flow__controls-button:last-child {
+    border-bottom: none !important;
+}
+
+.react-flow__controls-button:hover {
+    background-color: #3b82f6 !important;
+    fill: #ffffff !important;
+    transition: all 0.2s ease;
+}
+
 body, html {
     margin: 0;
     padding: 0;

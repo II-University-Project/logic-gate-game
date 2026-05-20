@@ -129,7 +129,9 @@ function App() {
     const [isHelpOpen, setIsHelpOpen] = useState(false);
     const [isRanksOpen, setIsRanksOpen] = useState(false);
     const [localContext, setLocalContext] = useState(DEFAULT_LOCATION_CONTEXT);
-
+    const [isColorblindMode, setIsColorblindMode] = useState(() => {
+        return JSON.parse(localStorage.getItem('logicGateColorblind')) || false;
+    });
     const [progress, setProgress] = useState({
         unlockedLevel: 1,
         levelStars: {},
@@ -197,6 +199,15 @@ function App() {
         });
     };
 
+    useEffect(() => {
+        if (isColorblindMode) {
+            document.body.setAttribute('data-theme', 'colorblind');
+        } else {
+            document.body.removeAttribute('data-theme');
+        }
+        localStorage.setItem('logicGateColorblind', JSON.stringify(isColorblindMode));
+    }, [isColorblindMode]);
+
     // Verificarea partea aia de inceput
     useEffect(() => {
         if (progress.profile !== null) return;
@@ -232,7 +243,12 @@ function App() {
 
     const totalStars = Object.values(progress.levelStars).reduce((sum, stars) => sum + stars, 0);
     const totalXP = totalStars * 50;
-
+    const mapTheme = {
+        completedBg: isColorblindMode ? '#1d4ed8' : '#059669',
+        completedGlow: isColorblindMode ? '#3b82f6' : '#10b981',
+        unlockedBg: isColorblindMode ? '#c2410c' : '#2563eb',
+        unlockedGlow: isColorblindMode ? '#f97316' : '#3b82f6',
+    };
     let badgeTitle = progress.profile || "Ucenic";
     let badgeColor = "#94a3b8";
     if (totalXP >= 500) { badgeTitle = "Tehnician"; badgeColor = "#3b82f6"; }
@@ -244,7 +260,7 @@ function App() {
     // =========================================================
     if (progress.profile === null) {
         return (
-            <div style={{ height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center', background: '#020617', backgroundImage: 'radial-gradient(circle, #1e293b 2px, transparent 2px)', backgroundSize: '30px 30px' }}>
+            <div style={{ height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
                 <div style={{ background: 'rgba(30, 41, 59, 0.95)', padding: '40px', borderRadius: '20px', border: '2px solid #3b82f6', maxWidth: '650px', textAlign: 'center', boxShadow: '0 0 50px rgba(59, 130, 246, 0.3)' }}>
 
                     <div style={{ marginBottom: '15px', animation: 'bounce 2s infinite', display: 'flex', justifyContent: 'center' }}>
@@ -354,7 +370,12 @@ function App() {
                         <img src={lightBulbSvg} alt="" style={{ width: '18px', height: '18px', objectFit: 'contain' }} />
                         <span>Teorie & Ajutor</span>
                     </button>
-
+                    <button
+                        onClick={() => setIsColorblindMode(!isColorblindMode)}
+                        style={{ background: '#0f172a', color: isColorblindMode ? '#3b82f6' : '#cbd5e1', border: `1px solid ${isColorblindMode ? '#3b82f6' : '#475569'}`, padding: '10px 15px', borderRadius: '8px', cursor: 'pointer', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '8px', transition: 'all 0.2s' }}
+                    >
+                        <span>{isColorblindMode ? '👁️ Mod Daltonism: ACTIV' : '👁️ Mod Daltonism: OPRIT'}</span>
+                    </button>
                     <button
                         onClick={() => setIsRanksOpen(true)}
                         style={{ background: '#0f172a', color: '#cbd5e1', border: '1px solid #475569', padding: '10px 15px', borderRadius: '8px', cursor: 'pointer', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '8px', transition: 'all 0.2s' }}
@@ -393,7 +414,6 @@ function App() {
                     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '60px 40px 100px 40px', minHeight: '100%' }}>
                         <h2 style={{ textAlign: 'center', color: '#e2e8f0', marginBottom: '35px', fontSize: '2.5rem', textTransform: 'uppercase', letterSpacing: '3px' }}>Harta Sistemului</h2>
 
-
                         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                             {levelRows.map((row, rowIndex) => {
                                 const isLTR = rowIndex % 2 === 0;
@@ -410,7 +430,8 @@ function App() {
                                             return (
                                                 <div key={l.id} style={{ display: 'flex', alignItems: 'center', flexDirection: isLTR ? 'row' : 'row-reverse' }}>
                                                     <div style={{ position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center', width: '80px', height: '80px' }}>
-                                                        <div onClick={() => isUnlocked && loadLevel(l)} style={{ width: '80px', height: '80px', borderRadius: '50%', background: isCompleted ? '#059669' : isUnlocked ? '#2563eb' : '#1e293b', border: `4px solid ${isUnlocked ? '#f8fafc' : '#334155'}`, boxShadow: isUnlocked ? `0 0 25px ${isCompleted ? '#10b981' : '#3b82f6'}` : 'none', display: 'flex', justifyContent: 'center', alignItems: 'center', cursor: isUnlocked ? 'pointer' : 'not-allowed', flexShrink: 0, transition: 'all 0.3s ease-in-out', opacity: isUnlocked ? 1 : 0.4, zIndex: 2 }}>
+
+                                                        <div onClick={() => isUnlocked && loadLevel(l)} style={{ width: '80px', height: '80px', borderRadius: '50%', background: isCompleted ? mapTheme.completedBg : isUnlocked ? mapTheme.unlockedBg : '#1e293b', border: `4px solid ${isUnlocked ? '#f8fafc' : '#334155'}`, boxShadow: isUnlocked ? `0 0 25px ${isCompleted ? mapTheme.completedGlow : mapTheme.unlockedGlow}` : 'none', display: 'flex', justifyContent: 'center', alignItems: 'center', cursor: isUnlocked ? 'pointer' : 'not-allowed', flexShrink: 0, transition: 'all 0.3s ease-in-out', opacity: isUnlocked ? 1 : 0.4, zIndex: 2 }}>
                                                             <span style={{ fontSize: '28px', fontWeight: 'bold', color: isUnlocked ? '#fff' : '#64748b' }}>{l.id}</span>
                                                         </div>
                                                         <div style={{ position: 'absolute', top: '95px', width: '140px', left: '50%', transform: 'translateX(-50%)', textAlign: 'center', color: isUnlocked ? '#cbd5e1' : '#475569', fontSize: '13px', fontWeight: 'bold', zIndex: 2 }}>
@@ -425,7 +446,7 @@ function App() {
                                                         </div>
                                                     </div>
                                                     {!isLastInRow && (
-                                                        <div style={{ width: '80px', height: '8px', background: isCompleted ? '#10b981' : '#1e293b', boxShadow: isCompleted ? '0 0 12px #10b981, 0 0 4px #10b981' : 'none', transition: 'all 0.3s', zIndex: 1 }} />
+                                                        <div style={{ width: '80px', height: '8px', background: isCompleted ? mapTheme.completedGlow : '#1e293b', boxShadow: isCompleted ? `0 0 12px ${mapTheme.completedGlow}, 0 0 4px ${mapTheme.completedGlow}` : 'none', transition: 'all 0.3s', zIndex: 1 }} />
                                                     )}
                                                 </div>
                                             );
@@ -434,8 +455,8 @@ function App() {
                                         {!isLastRow && (() => {
                                             const lastItem = row[row.length - 1];
                                             const isRowCompleted = lastItem.id < progress.unlockedLevel || progress.levelStars[lastItem.id] !== undefined;
-                                            const uTurnColor = isRowCompleted ? '#10b981' : '#1e293b';
-                                            const glow = isRowCompleted ? 'drop-shadow(0 0 6px #10b981)' : 'none';
+                                            const uTurnColor = isRowCompleted ? mapTheme.completedGlow : '#1e293b';
+                                            const glow = isRowCompleted ? `drop-shadow(0 0 6px ${mapTheme.completedGlow})` : 'none';
 
                                             return (
                                                 <div style={{ position: 'absolute', top: '36px', [isLTR ? 'right' : 'left']: '-40px', width: '80px', height: '238px', boxSizing: 'border-box', borderTop: `8px solid ${uTurnColor}`, borderBottom: `8px solid ${uTurnColor}`, [isLTR ? 'borderRight' : 'borderLeft']: `8px solid ${uTurnColor}`, borderRadius: isLTR ? '0 60px 60px 0' : '60px 0 0 60px', filter: glow, transition: 'all 0.3s', zIndex: 0 }} />
